@@ -1,57 +1,48 @@
 *{
     padding:0;
     margin: 0;
+    box-sizing: border-box;
     font-family:"Hanalei Fill","Cinzel",Impact, 'Arial Narrow Bold', sans-serif;
+    color: darkgoldenrod;
+    text-shadow:2px 2px 2px beige;
 
 }
 body{/*Como hacer que los divs principales ocupen la totalidad de la pantalla??*/
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     flex-flow:column;
 }
- /*Hay muchas propiedades que se repiten en los divs, por ejemplo el color de las fuentes, text-shadow, display:flex, justify-content, aling-items, etc, agrupar en un solo bolque de codigo!*/
-header{
+ /*Hay muchas propiedades que se repiten en los divs, por ejemplo el color de las fuentes, text-shadow, display:flex, justify-content, aling-items, etc, agrupar en un solo bloque de codigo!*/
+ header , main, main ul, footer{
     display: flex;
     justify-content: center;
     align-items: center;
+ }
+header{
     height: 150px;
     background-color:black;
     font-size: 18px;
-    color: darkgoldenrod;
     text-align: center;
-    text-shadow:2px 2px 2px beige;
 }
 main{
-    height: 300px;
-     /*background-color: grey;*/
-    background: linear-gradient(black,grey,black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;/*Propiedad para que el div main ocupe la altura restante*/
+    background: linear-gradient(black,rgb(51, 51, 48),black);
 }
 
 main ul{
     list-style-type: none;
-    display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     gap: 5%;
 }
 main ul li{
     border: solid aliceblue;
     width: 100px;
     height: 100px;
-    color: darkgoldenrod;
-    text-shadow: 2px 2px 2px beige;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 footer{
     background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: darkgoldenrod;
-    text-shadow: 2px 2px 2px beige;
 }
