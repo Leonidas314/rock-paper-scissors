@@ -14,22 +14,80 @@ body{/*Como hacer que los divs principales ocupen la totalidad de la pantalla??*
     flex-flow:column;
 }
  /*Hay muchas propiedades que se repiten en los divs, por ejemplo el color de las fuentes, text-shadow, display:flex, justify-content, aling-items, etc, agrupar en un solo bloque de codigo!*/
- header , main, main ul, footer{
+ header , main, main ul, footer, .intro-container{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
  }
 header{
-    height: 120px;
+    height: 100px;
     background-color:black;
-    font-size: 18px;
+    font-size: 25px;
     text-align: center;
 }
+/*---------------------------------------------------------*/
+/*----------------ANIMACION--------------------------------*/
+  header #titulo{
+    /*border: solid red;*/
+    animation-name: fiuumba;
+    animation-duration: 3s;
+    /*animation-delay: 500ms;/*tiempo que tarda en arrancar la animacion*/
+    position: relative;/*Prop. necesaria para mover el div*/
+  }
+  @keyframes fiuumba{
+    0%{opacity: 0;}/*Que sucede al inicio de animacion?*/
+    /*50%{}/*Que sucede al 50% de su tiempo ejecutado?*/
+    100%{opacity:1;}/*Que sucede cuando termina?*/
+  }
+/*---------------------------------------------------------*/
+
 main{
     flex: 1;/*Propiedad para que el div main ocupe la altura restante*/
-    background: linear-gradient(black,rgb(51, 51, 48),black);
+    background: black;
 }
-
+.intros{
+    /*border: solid red;*/
+    width: 75%;
+    font-size: 25px;
+    text-align: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+.intro-container{
+    margin-bottom: 50px;
+}
+.intro-container .intros > p{
+    text-shadow: none;
+    font-weight: 5px;
+}
+#intro1{
+    animation-name: intro1 ;
+    animation-duration: 10s;
+}
+#intro2{
+    animation-name: intro2 ;
+    animation-duration: 15s;
+}
+#intro3{
+    animation-name: intro3 ;
+    animation-duration: 18s;
+}
+@keyframes intro1 {
+    0%{opacity: 0;}
+    20%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes intro2 {
+    0%{opacity: 0;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes intro3 {
+    0%{opacity: 0;}
+    75%{opacity: 0;}
+    100%{opacity: 1;}
+}
 main ul{
     list-style-type: none;
     flex-direction: row;
@@ -37,6 +95,7 @@ main ul{
 }
 main ul li{
     border: solid darkgoldenrod;
+    border-radius: 5%;
     width: 200px;
     height: 200px;
     display: flex;
@@ -46,6 +105,7 @@ main ul li{
     gap: 5%;
     font-size: 30px;
 }
+
 main ul li img{
     height: 100px;
     width: 100px;
