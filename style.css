@@ -20,7 +20,7 @@ body{/*Como hacer que los divs principales ocupen la totalidad de la pantalla??*
     align-items: center;
  }
 header{
-    height: 150px;
+    height: 120px;
     background-color:black;
     font-size: 18px;
     text-align: center;
@@ -33,15 +33,22 @@ main{
 main ul{
     list-style-type: none;
     flex-direction: row;
-    gap: 5%;
+    gap: 10%;
 }
 main ul li{
-    border: solid aliceblue;
-    width: 100px;
-    height: 100px;
+    border: solid darkgoldenrod;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 5%;
+    font-size: 30px;
+}
+main ul li img{
+    height: 100px;
+    width: 100px;
 }
 footer{
     background-color: black;
