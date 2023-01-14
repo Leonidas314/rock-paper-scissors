@@ -1,14 +1,28 @@
-/*Capturar evento click en play-button*/
 
-var boton = document.querySelector("#play-button");
+let boton = document.querySelector('#play-button');
 
-/*"Escuchamos" el evento "click" en el boton capturado anteriormente como varible "boton"*/
+let introContainer = document.querySelector('.intro-container');
 
-/*boton.addEventListener("click",function(event){
+let imagesContainer = document.querySelector('.images-container');
 
-    console.log("Haz clikeado en el boton, se ha cpaturado la acción click");
+/*Cambiar la propiedad css de un elemento para que no sea visible*/
+document.getElementById("images-container").style.display = 'none'
+
+
+/*Funcion para capturar evento click en  variable boton
+se remueve la variable "introContainer" y se cambia la propiedad de
+elementon con id ="images-container" a "flex"*/
+
+ boton.addEventListener('click', function(){
+
+    introContainer.remove();
+    document.getElementById('images-container').style.display = 'flex'
+
+    console.log("boton activado");
+ 
+})
+
+/*imagesContainer.addEventListener('mouseover' , function(){
+
+    console.log("Pasó");
 })*/
-
-document.getElementById("play-button").addEventListener('click', function(){
-    alert("si");
-});

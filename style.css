@@ -118,6 +118,9 @@ main{
     75%{opacity: 0;}
     100%{opacity: 1;}   
 }*/
+/*.images-container{
+    
+}*/
 main ul{
     list-style-type: none;
     flex-direction: row;
