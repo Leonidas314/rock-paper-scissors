@@ -124,13 +124,18 @@ main{
 main ul{
     list-style-type: none;
     flex-direction: row;
+    gap: 5%;
+}
+.images-container{
+    display: flex;
+    justify-content: center;
     gap: 10%;
 }
 main ul li{
     border: solid darkgoldenrod;
     border-radius: 5%;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +143,21 @@ main ul li{
     gap: 5%;
     font-size: 30px;
 }
-
+.player-div , .cpu-div{
+    text-align: center;
+}
+.player-div > h2 , .cpu-div > h2{
+    margin-bottom: 20px;
+}
+#player-select > li:hover{
+    background-color: blue;
+    cursor: pointer;
+}
+#player-select > li:active{
+    translate: 5px -5px 0;
+    transform: scale(0.95);
+    transition: 50ms;
+}
 main ul li img{
     height: 100px;
     width: 100px;
