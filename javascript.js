@@ -27,10 +27,24 @@ let randomNumber =Math.floor(Math.random()*(3-0));
  
     if (randomNumber==0){
         computerChoice = "Piedra";
+
+        document.getElementById('piedraCPU').style.background = 'blue';
+
+        setTimeout(function(){ document.getElementById('piedraCPU').style.background = 'black';},1720);
+       
+        
     }else if (randomNumber == 1){
         computerChoice = "Papel";
+        
+        document.getElementById('papelCPU').style.background = 'blue';
+
+        setTimeout(function(){document.getElementById('papelCPU').style.background = 'black';}, 1720)
     }else{
         computerChoice = "Tijera";
+        document.getElementById('tijeraCPU').style.background = 'blue';
+
+
+        setTimeout(function(){document.getElementById('tijeraCPU').style.background = 'black';}, 1720)
     }
     return computerChoice;
 }
@@ -72,7 +86,7 @@ function Ganador(playerChoice,CPUchoice){
 */
 
        piedra.addEventListener('click',function(){
-
+        
             let playerChoice = "Piedra";
             console.log("Jugador elije " + playerChoice );
 
