@@ -19,56 +19,93 @@ elementon con id ="images-container" a "flex"*/
 
     console.log("boton activado");
  
-})
+});
+/*Funcion que elije aletoreamente Piedra Papel o Tijera, jugadad d la computadora*/
+
+function CPUselector(){
+let randomNumber =Math.floor(Math.random()*(3-0));
+ 
+    if (randomNumber==0){
+        computerChoice = "Piedra";
+    }else if (randomNumber == 1){
+        computerChoice = "Papel";
+    }else{
+        computerChoice = "Tijera";
+    }
+    return computerChoice;
+}
+
+/*Funcion que compara las elecciones de ambos jugadores y decide quien ganó*/
+
+function Ganador(playerChoice,CPUchoice){
+    if(playerChoice == computerChoice){
+        console.log("Empate");
+    }else
+    if(playerChoice == "Piedra" && CPUchoice == "Papel"){
+        console.log("CPU WIN");
+    }else
+    if(playerChoice == "Piedra" && CPUchoice=="Tijera"){
+        console.log("PLAYER WIN");
+    }else
+    if(playerChoice == "Papel" && CPUchoice == "Piedra"){
+        console.log("PLAYER WIN");
+    }else
+    if(playerChoice == "Papel" && CPUchoice == "Tijera"){
+        console.log("CPU WWIN");
+    }else
+    if(playerChoice == "Tijera" && CPUchoice == "Piedra"){
+    console.log("CPU WIN");
+    }else
+    if(playerChoice == "Tijera" && CPUchoice == "Papel"){
+        console.log("PLAYER WIN");
+    }
+    return false;
+}
+
 
 /*Capturar el evento click sobre las imagenes de piedra, papel o tijera, diferenciando cada una*/
 
-let playerSelectors = document.querySelector('#player-select');
+/*Cuando se haga click en el elemento id="piedra","papel", o tijera quiero que :
 
-let piedra = document.querySelector('#piedra');
-let papel = document.querySelector('#papel');
-let tijera = document.querySelector('#tijera');
+1)
 
-/*playerSelectors.addEventListener('click',function(){
-    console.log("sape")
-});*/
+*/
 
-function Capturar(){
+       piedra.addEventListener('click',function(){
 
-    
-    if(    piedra.addEventListener('click',function(){
-            console.log("Piedra");
+            let playerChoice = "Piedra";
+            console.log("Jugador elije " + playerChoice );
 
-        let playerChoice = "Piedra";
-        return playerChoice;
-        console.log(playerChoice);
+            let CPUchoice = CPUselector();
+            console.log("CPU elije " + CPUchoice);
 
-        })
-    ) 
-    if(
-        papel.addEventListener('click',function(){
-            console.log("papel")
-          let playerChoice = "Papel";
-          return playerChoice;
-        })
-    )
-    if(
-        tijera.addEventListener('click',function(){
-            console.log("tijera")
-            let playerChoice = "Tijera"
-            return playerChoice;
-        })
-    )
-        
-    return playerChoice;
-}
+            let resultadoRonda = Ganador(playerChoice,CPUchoice);
 
-playerChoice = Capturar;
-console.log(playerChoice);
-/*Funcion que recibe una variable desde la seleccion del jugador y la compara con la seleccion de la maquina*/
+       })
 
-function seleccionComparación(playerChoice,cpuChoice){
+       papel.addEventListener('click',function(){
+            
+            let playerChoice = "Papel";
+            console.log("Jugador elije " + playerChoice);
 
 
+            let CPUchoice = CPUselector();
+            console.log("CPU elije " + CPUchoice);
 
-}
+
+            let resultadoRonda = Ganador(playerChoice,CPUchoice);
+       })
+
+       tijera.addEventListener('click',function(){
+
+            let playerChoice = "Tijera";
+            console.log("Jugador elije " + playerChoice);
+
+            let CPUchoice = CPUselector();
+            console.log("CPU elije " + CPUchoice);
+
+
+            let resultadoRonda = Ganador(playerChoice,CPUchoice);
+       })
+
+
