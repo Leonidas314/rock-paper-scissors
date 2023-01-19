@@ -8,6 +8,9 @@ let imagesContainer = document.querySelector('.images-container');
 /*Cambiar la propiedad css de un elemento para que no sea visible*/
 document.getElementById('images-container').style.display = 'none';
 
+document.getElementById('mostrar-ganador').style.display = 'none';
+
+document.getElementById('mensaje-vencedor').style.display = 'none';
 /*Funcion para capturar evento click en  variable boton
 se remueve la variable "introContainer" y se cambia la propiedad de
 elementon con id ="images-container" a "flex"*/
@@ -16,10 +19,10 @@ elementon con id ="images-container" a "flex"*/
 
     introContainer.remove();
     document.getElementById('images-container').style.display = 'flex'
-
     console.log("boton activado");
  
 });
+
 /*Funcion que elije aletoreamente Piedra Papel o Tijera, jugadad d la computadora*/
 
 function CPUselector(){
@@ -49,28 +52,113 @@ let randomNumber =Math.floor(Math.random()*(3-0));
     return computerChoice;
 }
 
+/**VAriable necesaria apara limpiar pantalla con funcion setTimeout mas adelante */
+let divMensajeGanador = document.querySelector('#mostrar-ganador');
+
+
 /*Funcion que compara las elecciones de ambos jugadores y decide quien ganó*/
+/*Descripcion de la funcion: La funcion "Ganador" toma dos argumentos de entrada de tipo string y los compara siguiendo la reglas de juego. Se crean dos variables: Un elemento <p> y un mensaje (TextNode), el elemento <p> en forma de variable recibe como hijo a la variable "mensajeGanador" con el metodo .appendChild, ésta variable contiene un texto segun el resultado de la jugada*/
 
 function Ganador(playerChoice,CPUchoice){
     if(playerChoice == computerChoice){
-        console.log("Empate");
+        /**Creamos el elemento necesario con una declaracion de variable y document.createElement */
+        let elementoCreado = document.createElement('p');
+        /**Creamos el contenido tipo texto con document.createTextNode */
+        let mensajeGanador = document.createTextNode("Tie!");
+        /**Asignamos como hijo del elemento al texto */
+        elementoCreado.appendChild(mensajeGanador);
+        /**Asignamos como hijo del div: #mostrar-ganador al elemento p creado */
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        /*mostramos div que se encontraba oculto*/
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+        /**funcion que elimina en un breve periodo de tiempo el hijo del div #mostrar-ganador, asignado a la variable divMensajeGanador, para limpiar la pantalla luego de mostrar el mensaje */
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
+        console.log("Tie!");
     }else
     if(playerChoice == "Piedra" && CPUchoice == "Papel"){
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("CPU WINS\nPaper beat Rock");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
         console.log("CPU WIN");
     }else
     if(playerChoice == "Piedra" && CPUchoice=="Tijera"){
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("PLAYER WINS\nRock beat Scissors");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
         console.log("PLAYER WIN");
     }else
     if(playerChoice == "Papel" && CPUchoice == "Piedra"){
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("PLAYER WINS\nPaper beat Rock");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
         console.log("PLAYER WIN");
     }else
     if(playerChoice == "Papel" && CPUchoice == "Tijera"){
-        console.log("CPU WWIN");
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("CPU WINS\nScissors beat Paper");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
+        console.log("CPU WIN");
     }else
     if(playerChoice == "Tijera" && CPUchoice == "Piedra"){
-    console.log("CPU WIN");
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("CPU WINS\nRock beat Scissors");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
+        console.log("CPU WIN");
     }else
     if(playerChoice == "Tijera" && CPUchoice == "Papel"){
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("PLAYER WINS\nScissors beat Paper");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+        setTimeout(function(){
+            divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
+        },2000)
         console.log("PLAYER WIN");
     }
     return false;
