@@ -10,7 +10,7 @@ document.getElementById('images-container').style.display = 'none';
 
 document.getElementById('mostrar-ganador').style.display = 'none';
 
-document.getElementById('mensaje-vencedor').style.display = 'none';
+/*document.getElementById('mensaje-vencedor').style.display = 'none';
 /*Funcion para capturar evento click en  variable boton
 se remueve la variable "introContainer" y se cambia la propiedad de
 elementon con id ="images-container" a "flex"*/
@@ -52,6 +52,35 @@ let randomNumber =Math.floor(Math.random()*(3-0));
     return computerChoice;
 }
 
+/*Funcion que reciba la informacion de quien gano la ronda para crear un elemento dentro de las tablas debajo de los selectores de cada jugador*/
+
+
+function fncrearTd(Winner){
+
+    if(Winner=="CPU"){
+        let tdcrear = document.createElement('td');
+        let tdcontent = document.createTextNode("CWin");
+
+        tdcontent = tdcrear.appendChild(tdcontent);
+        document.getElementById('CPU-table').appendChild(tdcrear);
+    }else{
+
+        let tdcrear = document.createElement('td');
+        let tdcontent = document.createTextNode("PWin");
+
+        tdcontent = tdcrear.appendChild(tdcontent);
+        document.getElementById('Player-table').appendChild(tdcrear);
+    }
+
+    return false
+}
+
+ let winnerCpu = "CPU";
+
+ let winnerPlayer = "PLayer";
+
+
+
 /**VAriable necesaria apara limpiar pantalla con funcion setTimeout mas adelante */
 let divMensajeGanador = document.querySelector('#mostrar-ganador');
 
@@ -90,6 +119,8 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("CPU WIN");
+
+        fncrearTd(winnerCpu);
     }else
     if(playerChoice == "Piedra" && CPUchoice=="Tijera"){
 
@@ -104,6 +135,9 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("PLAYER WIN");
+
+
+        fncrearTd(winnerPlayer);
     }else
     if(playerChoice == "Papel" && CPUchoice == "Piedra"){
 
@@ -117,7 +151,11 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
+
         console.log("PLAYER WIN");
+
+        fncrearTd(winnerPlayer);
+
     }else
     if(playerChoice == "Papel" && CPUchoice == "Tijera"){
 
@@ -132,6 +170,8 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("CPU WIN");
+
+        fncrearTd(winnerCpu);
     }else
     if(playerChoice == "Tijera" && CPUchoice == "Piedra"){
 
@@ -146,6 +186,9 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("CPU WIN");
+
+
+        fncrearTd(winnerCpu);
     }else
     if(playerChoice == "Tijera" && CPUchoice == "Papel"){
 
@@ -160,6 +203,9 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("PLAYER WIN");
+
+
+        fncrearTd(winnerPlayer)
     }
     return false;
 }
@@ -169,7 +215,9 @@ function Ganador(playerChoice,CPUchoice){
 
 /*Cuando se haga click en el elemento id="piedra","papel", o tijera quiero que :
 
-1)
+1)  Se definan las variables playerChoice y CPUchoice
+
+2) Se llame a la funcion "Ganador" cuyos argumentos de entrada seran las variables ya definidas
 
 */
 
