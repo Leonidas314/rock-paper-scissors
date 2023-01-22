@@ -239,16 +239,26 @@ function Ganador(playerChoice,CPUchoice){
 
 /*Cuando se haga click en el elemento id="piedra","papel", o tijera quiero que :
 
-1)  Se definan las variables playerChoice y CPUchoice
+1) Se definan las variables playerChoice (al hacer click en algunas de las imagenes) y CPUchoice (con la funcion CPUselector)
 
-2) Se llame a la funcion "Ganador" cuyos argumentos de entrada seran las variables ya definidas
+2) Se llame a la funcion "Ganador" cuyos argumentos de entrada seran las variables ya definidas playerChoice y CPU choice
 
+3) La funcion "Ganador" retorna un valor segun el ganador, cpuPoint o playerPoint, que se guarda en la variable "resultadoRonda"
+
+4) Necesito dos variables contadores para cada jugador, se irá adicionando a cada variable un punto segun el valor de "resultadoRonda"
+
+5)
 */
+     let contadorPlayer = 0;
+            
+            let contadorCPU = 0;
+
 
        piedra.addEventListener('click',function(){
+
         
             let playerChoice = "Piedra";
-            console.log("Jugador elije " + playerChoice );
+            console.log("Jugador elije" + playerChoice );
 
             let CPUchoice = CPUselector();
             console.log("CPU elije " + CPUchoice);
@@ -256,6 +266,16 @@ function Ganador(playerChoice,CPUchoice){
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
 
             console.log(resultadoRonda);
+
+            if(resultadoRonda=="cpuPoint"){
+                contadorCPU++;
+            }else 
+            if(resultadoRonda == "playerPoint"){
+                contadorPlayer++;
+            }
+            return contadorCPU,contadorPlayer;
+
+            console.log(contadorCPU);
        })
 
        papel.addEventListener('click',function(){
@@ -269,6 +289,15 @@ function Ganador(playerChoice,CPUchoice){
 
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
+
+            console.log(resultadoRonda);
+              if(resultadoRonda=="cpuPoint"){
+                contadorCPU++;
+            }else 
+            if(resultadoRonda == "playerPoint"){
+                contadorPlayer++;
+            }
+            return contadorCPU,contadorPlayer;
        })
 
        tijera.addEventListener('click',function(){
@@ -281,6 +310,13 @@ function Ganador(playerChoice,CPUchoice){
 
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
+            console.log(resultadoRonda);
+            if(resultadoRonda=="cpuPoint"){
+                contadorCPU++;
+            }else 
+            if(resultadoRonda == "playerPoint"){
+                contadorPlayer++;
+            }
+            return contadorCPU,contadorPlayer;
        })
-
 
