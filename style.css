@@ -131,6 +131,16 @@ main ul{
     justify-content: center;
     gap: 10%;
 }
+#mostrar-ganador{
+    height: 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+}
+#mostrar-ganador > p{
+    font-size: 27px;
+}
 main ul li{
     border: solid darkgoldenrod;
     border-radius: 5%;
@@ -161,6 +171,14 @@ main ul li{
 main ul li img{
     height: 100px;
     width: 100px;
+}
+.table-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    font-size: 25px;
 }
 footer{
     background-color: black;

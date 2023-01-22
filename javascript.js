@@ -18,7 +18,8 @@ elementon con id ="images-container" a "flex"*/
  boton.addEventListener('click', function(){
 
     introContainer.remove();
-    document.getElementById('images-container').style.display = 'flex'
+    document.getElementById('images-container').style.display = 'flex';
+    document.getElementById('mostrar-ganador').style.display = 'flex';
     console.log("boton activado");
  
 });
@@ -88,6 +89,7 @@ let divMensajeGanador = document.querySelector('#mostrar-ganador');
 /*Funcion que compara las elecciones de ambos jugadores y decide quien ganó*/
 /*Descripcion de la funcion: La funcion "Ganador" toma dos argumentos de entrada de tipo string y los compara siguiendo la reglas de juego. Se crean dos variables: Un elemento <p> y un mensaje (TextNode), el elemento <p> en forma de variable recibe como hijo a la variable "mensajeGanador" con el metodo .appendChild, ésta variable contiene un texto segun el resultado de la jugada*/
 
+
 function Ganador(playerChoice,CPUchoice){
     if(playerChoice == computerChoice){
         /**Creamos el elemento necesario con una declaracion de variable y document.createElement */
@@ -119,8 +121,11 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("CPU WIN");
-
         fncrearTd(winnerCpu);
+
+        let puntoCpu = "cpuPoint";
+
+        return puntoCpu;
     }else
     if(playerChoice == "Piedra" && CPUchoice=="Tijera"){
 
@@ -135,9 +140,13 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("PLAYER WIN");
-
-
         fncrearTd(winnerPlayer);
+
+        /**------- */
+        let puntoRonda = "playerPoint";
+
+        return puntoRonda;
+        /**------- */
     }else
     if(playerChoice == "Papel" && CPUchoice == "Piedra"){
 
@@ -156,6 +165,11 @@ function Ganador(playerChoice,CPUchoice){
 
         fncrearTd(winnerPlayer);
 
+        /**--------- */
+        let puntoRonda = "playerPoint";
+
+        return puntoRonda;
+        /**------- */
     }else
     if(playerChoice == "Papel" && CPUchoice == "Tijera"){
 
@@ -172,6 +186,11 @@ function Ganador(playerChoice,CPUchoice){
         console.log("CPU WIN");
 
         fncrearTd(winnerCpu);
+        /**---------- */
+        let puntoRonda = "cpuPoint";
+
+        return puntoRonda;
+        /**------------ */
     }else
     if(playerChoice == "Tijera" && CPUchoice == "Piedra"){
 
@@ -187,8 +206,12 @@ function Ganador(playerChoice,CPUchoice){
         },2000)
         console.log("CPU WIN");
 
-
         fncrearTd(winnerCpu);
+        /**------------ */
+        let puntoRonda= "cpuPoint";
+
+        return puntoRonda;
+        /**------------ */
     }else
     if(playerChoice == "Tijera" && CPUchoice == "Papel"){
 
@@ -203,11 +226,12 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("PLAYER WIN");
+        fncrearTd(winnerPlayer);
 
+        let puntoRonda = "playerPoint";
 
-        fncrearTd(winnerPlayer)
+        return puntoRonda;
     }
-    return false;
 }
 
 
@@ -231,6 +255,7 @@ function Ganador(playerChoice,CPUchoice){
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
 
+            console.log(resultadoRonda);
        })
 
        papel.addEventListener('click',function(){
