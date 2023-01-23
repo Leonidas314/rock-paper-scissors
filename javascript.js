@@ -107,6 +107,9 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
         console.log("Tie!");
+
+        let puntoRonda = "tie";
+        return puntoRonda;
     }else
     if(playerChoice == "Piedra" && CPUchoice == "Papel"){
 
@@ -249,10 +252,31 @@ function Ganador(playerChoice,CPUchoice){
 
 5)
 */
-     let contadorPlayer = 0;
-            
-            let contadorCPU = 0;
 
+
+
+let contadorPlayer = 0;
+            
+let contadorCPU = 0;
+
+function contadorPuntos(puntoRonda){
+
+    console.log(puntoRonda)
+    if (puntoRonda == "playerPoint"){
+        contadorPlayer++;
+
+        console.log(contadorPlayer);
+    }else
+    if(puntoRonda == "cpuPoint"){
+        contadorCPU++;
+        console.log(contadorCPU)
+    }
+
+    return contadorCPU,contadorPlayer;
+
+}
+    
+/**------------------------------------------------------------------ */
 
        piedra.addEventListener('click',function(){
 
@@ -267,17 +291,12 @@ function Ganador(playerChoice,CPUchoice){
 
             console.log(resultadoRonda);
 
-            if(resultadoRonda=="cpuPoint"){
-                contadorCPU++;
-            }else 
-            if(resultadoRonda == "playerPoint"){
-                contadorPlayer++;
-            }
-            return contadorCPU,contadorPlayer;
+            let point = contadorPuntos(resultadoRonda);
 
-            console.log(contadorCPU);
+            console.log(point);
        })
 
+/**------------------------------------------------------------------ */
        papel.addEventListener('click',function(){
             
             let playerChoice = "Papel";
@@ -291,13 +310,9 @@ function Ganador(playerChoice,CPUchoice){
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
 
             console.log(resultadoRonda);
-              if(resultadoRonda=="cpuPoint"){
-                contadorCPU++;
-            }else 
-            if(resultadoRonda == "playerPoint"){
-                contadorPlayer++;
-            }
-            return contadorCPU,contadorPlayer;
+           
+
+/**------------------------------------------------------------------ */
        })
 
        tijera.addEventListener('click',function(){
@@ -311,12 +326,7 @@ function Ganador(playerChoice,CPUchoice){
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
             console.log(resultadoRonda);
-            if(resultadoRonda=="cpuPoint"){
-                contadorCPU++;
-            }else 
-            if(resultadoRonda == "playerPoint"){
-                contadorPlayer++;
-            }
-            return contadorCPU,contadorPlayer;
+            
+
        })
 
