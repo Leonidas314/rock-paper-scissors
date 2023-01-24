@@ -106,7 +106,7 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
-        console.log("Tie!");
+        /*console.log("Tie!");*/
 
         let puntoRonda = "tie";
         return puntoRonda;
@@ -123,7 +123,7 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
-        console.log("CPU WIN");
+         /*console.log("CPU WIN");*/
         fncrearTd(winnerCpu);
 
         let puntoCpu = "cpuPoint";
@@ -142,7 +142,7 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
-        console.log("PLAYER WIN");
+         /*console.log("PLAYER WIN");*/
         fncrearTd(winnerPlayer);
 
         /**------- */
@@ -164,7 +164,7 @@ function Ganador(playerChoice,CPUchoice){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
 
-        console.log("PLAYER WIN");
+        /*console.log("PLAYER WIN");*/
 
         fncrearTd(winnerPlayer);
 
@@ -186,7 +186,7 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
-        console.log("CPU WIN");
+        /*console.log("CPU WIN");*/
 
         fncrearTd(winnerCpu);
         /**---------- */
@@ -207,7 +207,7 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
-        console.log("CPU WIN");
+        /*console.log("CPU WIN");*/
 
         fncrearTd(winnerCpu);
         /**------------ */
@@ -228,7 +228,7 @@ function Ganador(playerChoice,CPUchoice){
         setTimeout(function(){
             divMensajeGanador.removeChild(divMensajeGanador.firstElementChild);
         },2000)
-        console.log("PLAYER WIN");
+         /*console.log("PLAYER WIN");*/
         fncrearTd(winnerPlayer);
 
         let puntoRonda = "playerPoint";
@@ -261,7 +261,7 @@ let contadorCPU = 0;
 
 function contadorPuntos(puntoRonda){
 
-    console.log(puntoRonda)
+    /*console.log(puntoRonda)*/
     if (puntoRonda == "playerPoint"){
         contadorPlayer++;
 
@@ -269,64 +269,128 @@ function contadorPuntos(puntoRonda){
     }else
     if(puntoRonda == "cpuPoint"){
         contadorCPU++;
-        console.log(contadorCPU)
+        console.log(contadorCPU);
     }
 
-    return contadorCPU,contadorPlayer;
+    let PUNTOS = [contadorPlayer,contadorCPU]
+    return PUNTOS;
 
 }
+ /*Funcion que crea un boton */
+function crearBoton(){
+
+    let  crearboton = document.createElement('button');
+    let botoncontent = document.createTextNode("REMATCH");
+
+    botoncontent = crearboton.appendChild(botoncontent);
+    document.getElementById('mostrar-ganador').appendChild(crearboton);
     
+
+    let tdcrear = document.createElement('td');
+    let tdcontent = document.createTextNode("CWin");
+
+    tdcontent = tdcrear.appendChild(tdcontent);
+    document.getElementById('CPU-table').appendChild(tdcrear);
+}
+
+
+/*Funcion que recibe el array donde se cuenta los puntos y cuando alguno de los dos llega a 5 "borra" el div images-container y muestra un mensaje segun quien ganó el juego.*/
+
+/* Luego del mensaje se crea un boton de "REMATCH*/
+function rondadeCinco(PUNTOS5){
+
+    if(PUNTOS5[0]==5){
+        /**Borramos el div contenedor de las imagenes y la frase de ganador de la ronda*/
+        document.getElementById('images-container').style.display = 'none';
+        /**Creamos mensaje de resultado para las cinco rondas */
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("You win the game bro, you're lucky, maybe now you want to buy some bitcoins... Just kidding");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+
+    }else
+    if(PUNTOS5[1]==5){
+        document.getElementById('images-container').style.display = 'none';
+        
+
+        let elementoCreado = document.createElement('p')
+        let mensajeGanador = document.createTextNode("CPU WINS THE MATCH, YOU KINDA HANDLESS BRO, SORRY :/");
+        
+        elementoCreado.appendChild(mensajeGanador);
+        document.getElementById('mostrar-ganador').appendChild(elementoCreado);
+        document.getElementById('mostrar-ganador').style.display = 'flex';
+    }
+    return false
+}
 /**------------------------------------------------------------------ */
 
        piedra.addEventListener('click',function(){
 
-        
+
             let playerChoice = "Piedra";
-            console.log("Jugador elije" + playerChoice );
+            /*console.log("Jugador elije" + playerChoice );*/
 
             let CPUchoice = CPUselector();
-            console.log("CPU elije " + CPUchoice);
+            /*console.log("CPU elije " + CPUchoice);*/
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
 
-            console.log(resultadoRonda);
+            /*console.log(resultadoRonda);*/
 
             let point = contadorPuntos(resultadoRonda);
 
             console.log(point);
+
+            let breakRonda=rondadeCinco(point);
        })
 
 /**------------------------------------------------------------------ */
        papel.addEventListener('click',function(){
             
             let playerChoice = "Papel";
-            console.log("Jugador elije " + playerChoice);
+            /*console.log("Jugador elije " + playerChoice);*/
 
 
             let CPUchoice = CPUselector();
-            console.log("CPU elije " + CPUchoice);
+            /*console.log("CPU elije " + CPUchoice);*/
 
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
 
-            console.log(resultadoRonda);
+            /*console.log(resultadoRonda);*/
+
+
+            let point = contadorPuntos(resultadoRonda);
+
+            console.log(point);
            
+            let breakRonda=rondadeCinco(point);
+
+       })
 
 /**------------------------------------------------------------------ */
-       })
 
        tijera.addEventListener('click',function(){
 
             let playerChoice = "Tijera";
-            console.log("Jugador elije " + playerChoice);
+            /*console.log("Jugador elije " + playerChoice);*/
 
             let CPUchoice = CPUselector();
-            console.log("CPU elije " + CPUchoice);
+            /*console.log("CPU elije " + CPUchoice);*/
 
 
             let resultadoRonda = Ganador(playerChoice,CPUchoice);
-            console.log(resultadoRonda);
+            /*console.log(resultadoRonda);*/
             
+
+            let point = contadorPuntos(resultadoRonda);
+
+            console.log(point);
+
+            let breakRonda=rondadeCinco(point);
+
 
        })
 
