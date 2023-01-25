@@ -309,7 +309,7 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
-
+        crearBoton();
     }else
     if(PUNTOS5[1]==5){
         document.getElementById('images-container').style.display = 'none';
@@ -321,6 +321,7 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
+        crearBoton();
     }
     return false
 }
@@ -344,6 +345,7 @@ function rondadeCinco(PUNTOS5){
             console.log(point);
 
             let breakRonda=rondadeCinco(point);
+
        })
 
 /**------------------------------------------------------------------ */
@@ -390,7 +392,6 @@ function rondadeCinco(PUNTOS5){
             console.log(point);
 
             let breakRonda=rondadeCinco(point);
-
 
        })
 
