@@ -277,7 +277,7 @@ function contadorPuntos(puntoRonda){
 
 }
  /*Funcion que crea un boton */
-function crearBoton(){
+function crearBoton(elementoentrada){
 
     let  crearboton = document.createElement('button');
     let botoncontent = document.createTextNode("REMATCH");
@@ -291,6 +291,16 @@ function crearBoton(){
 
     tdcontent = tdcrear.appendChild(tdcontent);
     document.getElementById('CPU-table').appendChild(tdcrear);
+
+    crearboton.addEventListener('click',function(){
+
+        elementoentrada.remove();
+        document.getElementById('images-container').style.display = 'flex';
+
+        PUNTOS = [0,0];
+        return PUNTOS;
+    })
+
 }
 
 
@@ -309,7 +319,7 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
-        crearBoton();
+        crearBoton(elementoCreado);
     }else
     if(PUNTOS5[1]==5){
         document.getElementById('images-container').style.display = 'none';
@@ -321,7 +331,7 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
-        crearBoton();
+        crearBoton(elementoCreado);
     }
     return false
 }
