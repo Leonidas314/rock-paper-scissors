@@ -268,11 +268,12 @@ function contadorPuntos(puntoRonda){
     if (puntoRonda == "playerPoint"){
         contadorPlayer++;
 
-        console.log(contadorPlayer);
+        /*console.log(contadorPlayer);*/
     }else
     if(puntoRonda == "cpuPoint"){
         contadorCPU++;
-        console.log(contadorCPU);
+
+        /*console.log(contadorCPU);*/
     }
 
     let PUNTOS = [contadorPlayer,contadorCPU]
@@ -295,7 +296,12 @@ function crearBoton(elementoRemove1){
         crearboton.remove();/**Boton removido con exito */
         elementoRemove1.remove();/**Elemento creado en funcion rondadeCinco removido con exito */
         document.getElementById('images-container').style.display = 'flex';
-        
+        /**Eliminar los hijos de los Nodos tablaBorrarPlayer */
+        let tablaBorrarPlayer = document.getElementById('Player-table');
+        let tablaBorrarCPU =document.getElementById('CPU-table');
+        tablaBorrarPlayer.innerHTML='';
+        tablaBorrarCPU.innerHTML ='';
+        /**------------------------------------------------- */
     })
 }
 
@@ -315,30 +321,20 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
-
-
-        let tablaBorrar = document.querySelector('#Player-table');
-        let tablaBorrarCPU =document.querySelector('#CPU-table');
-        tablaBorrar.removeChild(tablaBorrar.childNodes);
-        tablaBorrarCPU.removeChild(tablaBorrarCPU.childNodes);
         crearBoton(elementoCreado);
-        
+
     }else
     if(PUNTOS5[1]==5){
         document.getElementById('images-container').style.display = 'none';
         
 
         let elementoCreado = document.createElement('p')
-        let mensajeGanador = document.createTextNode("CPU WINS THE MATCH, YOU KINDA HANDLESS BRO, SORRY :/");
+        let mensajeGanador = document.createTextNode("CPU WINS THE MATCH, YOU KINDA suck BRO, SORRY :/");
         
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
         
-        let tablaBorrar = document.querySelector('#Player-table');
-        let tablaBorrarCPU =document.querySelector('#CPU-table');
-        tablaBorrar.removeChild(tablaBorrar.childNodes);
-        tablaBorrarCPU.removeChild(tablaBorrarCPU.childNodes);
         crearBoton(elementoCreado);
 
     }
