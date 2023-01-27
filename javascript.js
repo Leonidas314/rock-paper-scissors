@@ -60,6 +60,7 @@ function fncrearTd(Winner){
 
     if(Winner=="CPU"){
         let tdcrear = document.createElement('td');
+        tdcrear.classList.add('tds');
         let tdcontent = document.createTextNode("CWin");
 
         tdcontent = tdcrear.appendChild(tdcontent);
@@ -67,6 +68,8 @@ function fncrearTd(Winner){
     }else{
 
         let tdcrear = document.createElement('td');
+
+        tdcrear.classList.add('tds');
         let tdcontent = document.createTextNode("PWin");
 
         tdcontent = tdcrear.appendChild(tdcontent);
@@ -276,31 +279,24 @@ function contadorPuntos(puntoRonda){
     return PUNTOS;
 
 }
- /*Funcion que crea un boton */
-function crearBoton(elementoentrada){
-
+ /*Funcion que crea un boton y al ser pulsado debe reiciarse la cuenta de rondas y eliminarse el mismo boton con otros elementos necesarios para limpiar la pantalla*/
+function crearBoton(elementoRemove1){
+    /**Creamos el boton */
     let  crearboton = document.createElement('button');
     let botoncontent = document.createTextNode("REMATCH");
 
     botoncontent = crearboton.appendChild(botoncontent);
     document.getElementById('mostrar-ganador').appendChild(crearboton);
-    
+    /**Escuchador de eventos para el click y su funcionalidad */
 
-    let tdcrear = document.createElement('td');
-    let tdcontent = document.createTextNode("CWin");
-
-    tdcontent = tdcrear.appendChild(tdcontent);
-    document.getElementById('CPU-table').appendChild(tdcrear);
 
     crearboton.addEventListener('click',function(){
 
-        elementoentrada.remove();
+        crearboton.remove();/**Boton removido con exito */
+        elementoRemove1.remove();/**Elemento creado en funcion rondadeCinco removido con exito */
         document.getElementById('images-container').style.display = 'flex';
-
-        PUNTOS = [0,0];
-        return PUNTOS;
+        
     })
-
 }
 
 
@@ -319,7 +315,14 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
+
+
+        let tablaBorrar = document.querySelector('#Player-table');
+        let tablaBorrarCPU =document.querySelector('#CPU-table');
+        tablaBorrar.removeChild(tablaBorrar.childNodes);
+        tablaBorrarCPU.removeChild(tablaBorrarCPU.childNodes);
         crearBoton(elementoCreado);
+        
     }else
     if(PUNTOS5[1]==5){
         document.getElementById('images-container').style.display = 'none';
@@ -331,9 +334,14 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
+        
+        let tablaBorrar = document.querySelector('#Player-table');
+        let tablaBorrarCPU =document.querySelector('#CPU-table');
+        tablaBorrar.removeChild(tablaBorrar.childNodes);
+        tablaBorrarCPU.removeChild(tablaBorrarCPU.childNodes);
         crearBoton(elementoCreado);
+
     }
-    return false
 }
 /**------------------------------------------------------------------ */
 
