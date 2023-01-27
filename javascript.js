@@ -61,7 +61,7 @@ function fncrearTd(Winner){
     if(Winner=="CPU"){
         let tdcrear = document.createElement('td');
         tdcrear.classList.add('tds');
-        let tdcontent = document.createTextNode("CWin");
+        let tdcontent = document.createTextNode("POiNT");
 
         tdcontent = tdcrear.appendChild(tdcontent);
         document.getElementById('CPU-table').appendChild(tdcrear);
@@ -70,7 +70,7 @@ function fncrearTd(Winner){
         let tdcrear = document.createElement('td');
 
         tdcrear.classList.add('tds');
-        let tdcontent = document.createTextNode("PWin");
+        let tdcontent = document.createTextNode("POINT");
 
         tdcontent = tdcrear.appendChild(tdcontent);
         document.getElementById('Player-table').appendChild(tdcrear);
@@ -302,6 +302,9 @@ function crearBoton(elementoRemove1){
         tablaBorrarPlayer.innerHTML='';
         tablaBorrarCPU.innerHTML ='';
         /**------------------------------------------------- */
+        /**RESETEO DE VARIABLES GLOBALES PARA REINICIAR LA CUENTA (no se declaran con let o var, para evitar la localidad) */
+        contadorCPU=0;
+        contadorPlayer=0;
     })
 }
 
@@ -334,9 +337,7 @@ function rondadeCinco(PUNTOS5){
         elementoCreado.appendChild(mensajeGanador);
         document.getElementById('mostrar-ganador').appendChild(elementoCreado);
         document.getElementById('mostrar-ganador').style.display = 'flex';
-        
         crearBoton(elementoCreado);
-
     }
 }
 /**------------------------------------------------------------------ */
@@ -354,11 +355,11 @@ function rondadeCinco(PUNTOS5){
 
             /*console.log(resultadoRonda);*/
 
-            let point = contadorPuntos(resultadoRonda);
+            point = contadorPuntos(resultadoRonda);
 
             console.log(point);
 
-            let breakRonda=rondadeCinco(point);
+            point=rondadeCinco(point);
 
        })
 
@@ -378,11 +379,11 @@ function rondadeCinco(PUNTOS5){
             /*console.log(resultadoRonda);*/
 
 
-            let point = contadorPuntos(resultadoRonda);
+         point = contadorPuntos(resultadoRonda);
 
             console.log(point);
            
-            let breakRonda=rondadeCinco(point);
+            point=rondadeCinco(point);
 
        })
 
@@ -401,11 +402,11 @@ function rondadeCinco(PUNTOS5){
             /*console.log(resultadoRonda);*/
             
 
-            let point = contadorPuntos(resultadoRonda);
+         point = contadorPuntos(resultadoRonda);
 
             console.log(point);
 
-            let breakRonda=rondadeCinco(point);
+            point=rondadeCinco(point);
 
        })
 
