@@ -60,7 +60,6 @@ function fncrearTd(Winner){
 
     if(Winner=="CPU"){
         let tdcrear = document.createElement('td');
-        tdcrear.classList.add('tds');
         let tdcontent = document.createTextNode("POiNT");
 
         tdcontent = tdcrear.appendChild(tdcontent);
@@ -68,8 +67,6 @@ function fncrearTd(Winner){
     }else{
 
         let tdcrear = document.createElement('td');
-
-        tdcrear.classList.add('tds');
         let tdcontent = document.createTextNode("POINT");
 
         tdcontent = tdcrear.appendChild(tdcontent);
