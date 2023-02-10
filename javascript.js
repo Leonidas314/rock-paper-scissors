@@ -53,6 +53,14 @@ let randomNumber =Math.floor(Math.random()*(3-0));
     return computerChoice;
 }
 
+
+
+/*--------------------Como crear una imagen ------------*//*
+var Imagenverde= new Image(75,75);
+Imagenverde.src= */
+/*------------------------------------------------------*/
+
+
 /*Funcion que reciba la informacion de quien gano la ronda para crear un elemento dentro de las tablas debajo de los selectores de cada jugador*/
 
 
