@@ -65,27 +65,20 @@ Imagenverde.src= */
 
 
 function fncrearTd(Winner){
+    let tdcrear = document.createElement('td');
+    //Creacion de elemento img que sera un child del elemento 'td'
+    let crearImg = document.createElement('img');
+        crearImg.setAttribute('src','images/tilde.jpg');
+        crearImg.setAttribute('height','40px');
+        crearImg.setAttribute('width','40px');
+        crearImg.style.border ='3px solid'
+        crearImg.style.borderRadius ='15%'
+        crearImg = tdcrear.appendChild(crearImg);
 
+    //asignacion del elemento <td <img> > creado a elemento padre Id CPU-table o Player-table segun corresponda
     if(Winner=="CPU"){
-        let tdcrear = document.createElement('td');
-        let crearImg = document.createElement('img');
-        //let tdcontent = document.createTextNode("POiNT");
-        crearImg.setAttribute('src','images/tilde.jpg');
-        crearImg.setAttribute('height','40px');
-        crearImg.setAttribute('width','40px');
-        //tdcontent = tdcrear.appendChild(tdcontent);
-        crearImg = tdcrear.appendChild(crearImg);
         document.getElementById('CPU-table').appendChild(tdcrear);
-    }else{
-
-        let tdcrear = document.createElement('td');
-        //let tdcontent = document.createTextNode("POINT");
-        let crearImg = document.createElement('img');
-        crearImg.setAttribute('src','images/tilde.jpg');
-        crearImg.setAttribute('height','40px');
-        crearImg.setAttribute('width','40px');
-        crearImg = tdcrear.appendChild(crearImg);
-        //tdcontent = tdcrear.appendChild(tdcontent);
+    }else{      
         document.getElementById('Player-table').appendChild(tdcrear);
     }
 
