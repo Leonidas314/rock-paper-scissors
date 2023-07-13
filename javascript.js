@@ -24,7 +24,7 @@ elementon con id ="images-container" a "flex"*/
  
 });
 
-/*Funcion que elije aletoreamente Piedra Papel o Tijera, jugadad d la computadora*/
+/*Funcion que elije aletoreamente Piedra Papel o Tijera, jugada de la computadora, cambia de color al elemento html correspondiente*/
 
 function CPUselector(){
 let randomNumber =Math.floor(Math.random()*(3-0));
@@ -68,16 +68,24 @@ function fncrearTd(Winner){
 
     if(Winner=="CPU"){
         let tdcrear = document.createElement('td');
-        let tdcontent = document.createTextNode("POiNT");
-
-        tdcontent = tdcrear.appendChild(tdcontent);
+        let crearImg = document.createElement('img');
+        //let tdcontent = document.createTextNode("POiNT");
+        crearImg.setAttribute('src','images/tilde.jpg');
+        crearImg.setAttribute('height','40px');
+        crearImg.setAttribute('width','40px');
+        //tdcontent = tdcrear.appendChild(tdcontent);
+        crearImg = tdcrear.appendChild(crearImg);
         document.getElementById('CPU-table').appendChild(tdcrear);
     }else{
 
         let tdcrear = document.createElement('td');
-        let tdcontent = document.createTextNode("POINT");
-
-        tdcontent = tdcrear.appendChild(tdcontent);
+        //let tdcontent = document.createTextNode("POINT");
+        let crearImg = document.createElement('img');
+        crearImg.setAttribute('src','images/tilde.jpg');
+        crearImg.setAttribute('height','40px');
+        crearImg.setAttribute('width','40px');
+        crearImg = tdcrear.appendChild(crearImg);
+        //tdcontent = tdcrear.appendChild(tdcontent);
         document.getElementById('Player-table').appendChild(tdcrear);
     }
 
@@ -281,11 +289,11 @@ function contadorPuntos(puntoRonda){
         /*console.log(contadorCPU);*/
     }
 
-    let PUNTOS = [contadorPlayer,contadorCPU]
+    let PUNTOS = [contadorPlayer,contadorCPU]//define variable local pero la devuelve como global?? cosas de js
     return PUNTOS;
 
 }
- /*Funcion que crea un boton y al ser pulsado debe reiciarse la cuenta de rondas y eliminarse el mismo boton con otros elementos necesarios para limpiar la pantalla*/
+ /*Funcion que crea un boton y al ser pulsado debe reiniciarse la cuenta de rondas y eliminarse el mismo boton con otros elementos necesarios para limpiar la pantalla*/
 function crearBoton(elementoRemove1){
     /**Creamos el boton */
     let  crearboton = document.createElement('button');
